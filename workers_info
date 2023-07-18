@@ -1,0 +1,18 @@
+CREATE TABLE workers (id INTEGER primary key AUTOINCREMENT, Worker_id int, Firstname varchar(7), Lastname varchar(7), Salary int, Joining_Date datetime, Department varchar);
+INSERT INTO workers (Worker_id, Firstname, Lastname, Salary, Joining_Date, Department) VALUES (12,"Rohit","Sharma",1750000,06-05-2023,"IT Desk");
+INSERT INTO workers (Worker_id, Firstname, Lastname, Salary, Joining_Date, Department) VALUES (13,"Abinov","Mukund",1200000,04-11-2022,"IT Desk");
+INSERT INTO workers (Worker_id, Firstname, Lastname, Salary, Joining_Date, Department) VALUES (14,"Raj","Kiran",32000000,21-05-2022,"Development");
+INSERT INTO workers (Worker_id, Firstname, Lastname, Salary, Joining_Date, Department) VALUES (15,"Kabil","Sharma",1750000,06-09-2022,"IT Desk");
+INSERT INTO workers (Worker_id, Firstname, Lastname, Salary, Joining_Date, Department) VALUES (16,"Deepak","Hooda",4500000,24-10-2021,"IT Desk");
+
+CREATE TABLE title (id INTEGER primary key AUTOINCREMENT, Worker_ref_id int, Worker_title varchar, Affected_from datetime);
+INSERT INTO title (Worker_ref_id, Worker_title, Affected_from) VALUES (12,"Technical Support Trainee", 01-06-2023);
+INSERT INTO title (Worker_ref_id, Worker_title, Affected_from) VALUES (13,"IT Admin",01-12-2022);
+INSERT INTO title (Worker_ref_id, Worker_title, Affected_from) VALUES (14,"Junior Web Developer",01-06-2022);
+INSERT INTO title (Worker_ref_id, Worker_title, Affected_from) VALUES (15,"IT Desk Specialist",01-04-2023);
+INSERT INTO title (Worker_ref_id, Worker_title, Affected_from) VALUES (16,"IT Services Manager",01-01-2023);
+
+SELECT Firstname, Lastname, Salary, Worker_title FROM workers
+JOIN title
+ON Worker_id=Worker_ref_id
+ORDER BY Salary DESC;
